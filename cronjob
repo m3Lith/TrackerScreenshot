@@ -1,0 +1,4 @@
+SHELL=/bin/bash
+PATH=/usr/local/bin:/usr/bin:/bin
+
+${CRON_SCHEDULE} cd /usr/src/app && python screenshots.py >> /var/log/tracker-screenshots-cron.log 2>&1
