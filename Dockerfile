@@ -1,5 +1,9 @@
 FROM python:3-slim
 
+LABEL org.opencontainers.image.source=https://github.com/m3Lith/TrackerScreenshot
+LABEL org.opencontainers.image.description=""
+LABEL org.opencontainers.image.licenses=GPLv3
+
 RUN apt-get update && \
     apt-get install --no-install-recommends -y cron gettext-base chromium chromium-driver && \
     apt-get clean && \
@@ -14,6 +18,6 @@ RUN chmod +x entrypoint.sh
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Expose a log file to monitor cron jobs
-RUN touch /var/log/tracker-screenshots-cron.log
+# RUN touch /var/log/tracker-screenshots-cron.log
 
 ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
